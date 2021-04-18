@@ -1,10 +1,16 @@
 import React from 'react';
 import { GetStaticPropsContext, InferGetStaticPropsType, GetStaticPaths } from 'next';
+import Head from 'next/head';
 import Post from '../../interfaces/posts';
 
 export default function BlogPost({data}: InferGetStaticPropsType<typeof getStaticProps>) {
 	return (
 		<div>
+			<Head>
+				<title>{data.title.charAt(0).toUpperCase() + data.title.slice(1)}</title>
+				<meta name='author' content={data.userId.toString()}></meta>
+				<meta property='og:title' content={data.title}></meta>
+			</Head>
 			<h1>{data.title.charAt(0).toUpperCase() + data.title.slice(1)}</h1>
 			<h3>Written by {data.userId}</h3>
 			<p>{data.body.charAt(0).toUpperCase() + data.body.slice(1)}</p>

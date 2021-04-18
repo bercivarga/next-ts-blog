@@ -1,4 +1,5 @@
 import { InferGetStaticPropsType } from 'next';
+import Link from 'next/link';
 import Post from '../interfaces/posts';
 
 const IndexPage = ({ data }: InferGetStaticPropsType<typeof getStaticProps>) => {
@@ -6,10 +7,12 @@ const IndexPage = ({ data }: InferGetStaticPropsType<typeof getStaticProps>) => 
 		<div>
 			{data.map((a) => {
 				return (
-					<div key={a.id}>
-						<h1>{a.title.charAt(0).toUpperCase() + a.title.slice(1)}</h1>
-						<p>{a.body.charAt(0).toUpperCase() + a.body.slice(1)}.</p>
-					</div>
+					<Link href={`/posts/[${a.id}]`} as={`/posts/${a.id}`} key={a.id}>
+						<div>
+							<h1>{a.title.charAt(0).toUpperCase() + a.title.slice(1)}</h1>
+							<p>{a.body.charAt(0).toUpperCase() + a.body.slice(1)}.</p>
+						</div>
+					</Link>
 				);
 			})}
 		</div>
