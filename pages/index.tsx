@@ -1,21 +1,12 @@
 import { InferGetStaticPropsType } from 'next';
-import Link from 'next/link';
 import Post from '../interfaces/posts';
+import ArticleThumbnail from '@components/ArticleThumbnail';
 
 const IndexPage = ({ data }: InferGetStaticPropsType<typeof getStaticProps>) => {
 	return (
-		<div>
-			{data.map((a) => {
-				return (
-					<Link href={`/posts/[${a.id}]`} as={`/posts/${a.id}`} key={a.id}>
-						<div className="cursor-pointer hover:text-gray-600">
-							<h1 className="font-bold text-2xl mt-4">
-								{a.title.charAt(0).toUpperCase() + a.title.slice(1)}
-							</h1>
-							<p className="text-base mt-1">{a.body.charAt(0).toUpperCase() + a.body.slice(1)}.</p>
-						</div>
-					</Link>
-				);
+		<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 p-4">
+			{data.map((article) => {
+				return <ArticleThumbnail {...article} />;
 			})}
 		</div>
 	);
