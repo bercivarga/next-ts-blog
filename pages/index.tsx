@@ -8,9 +8,11 @@ const IndexPage = ({ data }: InferGetStaticPropsType<typeof getStaticProps>) => 
 			{data.map((a) => {
 				return (
 					<Link href={`/posts/[${a.id}]`} as={`/posts/${a.id}`} key={a.id}>
-						<div>
-							<h1>{a.title.charAt(0).toUpperCase() + a.title.slice(1)}</h1>
-							<p>{a.body.charAt(0).toUpperCase() + a.body.slice(1)}.</p>
+						<div className="cursor-pointer hover:text-gray-600">
+							<h1 className="font-bold text-2xl mt-4">
+								{a.title.charAt(0).toUpperCase() + a.title.slice(1)}
+							</h1>
+							<p className="text-base mt-1">{a.body.charAt(0).toUpperCase() + a.body.slice(1)}.</p>
 						</div>
 					</Link>
 				);
