@@ -4,3 +4,9 @@ export default interface Post {
 	title: string;
 	body: string;
 };
+export interface ImgDataInterface {
+	urls: {
+		regular?: string;
+	};
+	description?: string;
+}
