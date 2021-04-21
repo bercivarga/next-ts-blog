@@ -15,8 +15,8 @@ export default function Header() {
 			<Link href="/" as="/">
 				<button type="button">
 					<img
-						className="w-24 sm:w-48 cursor-pointer"
-						src="https://lh3.googleusercontent.com/proxy/AXE6xyB6Ax73HLdNPyW1cfIzupNSH-WDLmpAosI8eMkwzP-SjzAoHwANUmFCl2k9_i-7Bhs8sDeYfS6ECovfZcmqVjxpdiFDSNvGPfrH09clAW0"
+						className="w-24 sm:w-48 cursor-pointer overflow-visible"
+						src="/lorem-handelsblad-logo.svg"
 						alt="loremnews-logo"
 					/>
 				</button>
@@ -40,7 +40,7 @@ export default function Header() {
 				>
 					<img
 						className="object-cover object-center w-full h-full"
-						src="https://images.unsplash.com/flagged/photo-1570612861542-284f4c12e75f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+						src="/photo-1570612861542-284f4c12e75f.jpg"
 						alt="user-photo"
 					/>
 				</button>
@@ -57,7 +57,14 @@ export default function Header() {
 					<AiOutlineCloseSquare className="fill-current w-8 h-8" />
 				</button>
 				<div className="flex flex-col w-full">
-					<button type="button" className="p-4 focus:bg-gray-400 focus:outline-none">
+					<button type="button">
+						<img
+							className="w-32 m-auto sm:w-48 cursor-pointer"
+							src="/lorem-handelsblad-logo-white.svg"
+							alt="loremnews-logo"
+						/>
+					</button>
+					<button type="button" className="mt-12 p-4 focus:bg-gray-400 focus:outline-none">
 						Bookmarks
 					</button>
 					<button
