@@ -8,7 +8,7 @@ import Head from 'next/head';
 
 /* const APIKEY: string | unknown = process.env.REACT_APP_UNSPLASH_ACCESSKEY; */
 
-const IndexPage = ({ data }: InferGetStaticPropsType<typeof getStaticProps> | any) => {
+const IndexPage = ({ data }: InferGetStaticPropsType<typeof getStaticProps>) => {
 	const highlights: Post[] = data.slice(0, 5);
 
 	return (
