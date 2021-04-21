@@ -4,9 +4,9 @@ import Head from 'next/head';
 import Post from '../../interfaces/posts';
 import Header from '@components/Header';
 
-const APIKEY: string | unknown = process.env.REACT_APP_UNSPLASH_ACCESSKEY;
+/* const APIKEY: string | unknown = process.env.REACT_APP_UNSPLASH_ACCESSKEY; */
 
-export default function BlogPost({data, imgData}: InferGetStaticPropsType<typeof getStaticProps>) {
+export default function BlogPost({data}: InferGetStaticPropsType<typeof getStaticProps>) {
 	return (
 		<div>
 			<Head>
@@ -18,7 +18,7 @@ export default function BlogPost({data, imgData}: InferGetStaticPropsType<typeof
 				<Header />
 				<div className='w-full lg:w-2/3 lg:ml-auto lg:mr-auto mt-8'>
 					<div className="w-full pb-2/3 bg-gray-100 block relative">
-						<img className='object-cover h-full w-full absolute' src={imgData.urls.regular} alt={imgData.description}></img>
+						{/* <img className='object-cover h-full w-full absolute' src={imgData.urls.regular} alt={imgData.description}></img> */}
 					</div>
 					<h1 className='mt-4 font-bold text-3xl'>{data.title.charAt(0).toUpperCase() + data.title.slice(1)}</h1>
 					<h3 className='mt-2 text-lg text-red-800'>Written by {data.userId}</h3>
@@ -67,18 +67,18 @@ export const getStaticProps = async (context: GetStaticPropsContext) => {
 		}
 	}
 	
-	const [blogRes, imgRes] = await Promise.all([
+	const [blogRes, /* imgRes */] = await Promise.all([
 		fetch(`https://jsonplaceholder.typicode.com/posts/${params.id}`),
-		fetch(`https://api.unsplash.com/photos/random/?client_id=${APIKEY}`)
+	/* 	fetch(`https://api.unsplash.com/photos/random/?client_id=${APIKEY}`) */
 	])
 
 	const data = await blogRes.json();
-	const imgData = await imgRes.json();
+	/* const imgData = await imgRes.json(); */
 
 	return {
 		props: {
 			data,
-			imgData
+			/* imgData */
 		}
 	};
 };

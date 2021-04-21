@@ -5,7 +5,7 @@ import Header from '@components/Header';
 import Highlight from '@components/Highlight';
 import React from 'react';
 
-const APIKEY: string | unknown = process.env.REACT_APP_UNSPLASH_ACCESSKEY;
+/* const APIKEY: string | unknown = process.env.REACT_APP_UNSPLASH_ACCESSKEY; */
 
 const IndexPage = ({ data }: InferGetStaticPropsType<typeof getStaticProps> | any) => {
 	const highlights: Post[] = data.slice(0, 5);
@@ -26,18 +26,18 @@ const IndexPage = ({ data }: InferGetStaticPropsType<typeof getStaticProps> | an
 };
 
 export const getStaticProps = async () => {
-	const [ blogRes, imgRes ] = await Promise.all([
-		fetch(`https://jsonplaceholder.typicode.com/posts/`),
-		fetch(`https://api.unsplash.com/photos?page=1&per_page=30&client_id=${APIKEY}`)
+	const [ blogRes /* imgRes */ ] = await Promise.all([
+		fetch(`https://jsonplaceholder.typicode.com/posts/`)
+		/* fetch(`https://api.unsplash.com/photos?page=1&per_page=30&client_id=${APIKEY}`) */
 	]);
 
 	const data = await blogRes.json();
-	const imgData = await imgRes.json();
+	/* const imgData = await imgRes.json(); */
 
 	return {
 		props: {
-			data,
-			imgData
+			data
+			/* imgData */
 		}
 	};
 };
