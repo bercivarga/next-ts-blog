@@ -4,6 +4,7 @@ import ArticleThumbnail from '@components/ArticleThumbnail';
 import Header from '@components/Header';
 import Highlight from '@components/Highlight';
 import React from 'react';
+import Head from 'next/head';
 
 /* const APIKEY: string | unknown = process.env.REACT_APP_UNSPLASH_ACCESSKEY; */
 
@@ -12,6 +13,9 @@ const IndexPage = ({ data }: InferGetStaticPropsType<typeof getStaticProps> | an
 
 	return (
 		<React.Fragment>
+			<Head>
+				<title>Lorem Handelsblad</title>
+			</Head>
 			<div className="xl:w-4/5 xl:flex xl:flex-col xl:content-center xl:m-auto p-4">
 				<Header />
 				<Highlight {...highlights} />
